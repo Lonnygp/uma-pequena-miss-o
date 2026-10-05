@@ -1,0 +1,2007 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   IMPEDIR QUALQUER ROLAGEM
+========================= */
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    overscroll-behavior: none;
+}
+
+
+body {
+    margin: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #30205c,
+            #120d2b 48%,
+            #070713
+        );
+
+    color: #f7f3ff;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    overscroll-behavior: none;
+
+    touch-action: none;
+}
+
+
+/* =========================
+   ESTRELAS DO FUNDO
+========================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            #fff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            #c8b8ff 1px,
+            transparent 1px
+        );
+
+    background-size:
+        70px 70px,
+        110px 110px;
+
+    opacity: .22;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   TELAS
+========================= */
+
+.screen {
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    min-height: 100vh;
+
+    padding: 30px 18px;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    position: relative;
+
+    overscroll-behavior: none;
+
+    touch-action: none;
+}
+
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================
+   CARD PRINCIPAL
+========================= */
+
+.card {
+
+    width:
+        min(
+            720px,
+            calc(100vw - 40px)
+        );
+
+    max-height:
+        calc(100vh - 40px);
+
+    padding:
+        38px 30px;
+
+    border:
+        1px solid #ffffff20;
+
+    border-radius:
+        28px;
+
+    background:
+        #0f0a23dd;
+
+    backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+        0 25px 80px #0008;
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+}
+
+
+/* =========================
+   TEXTOS
+========================= */
+
+.eyebrow {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #bfa9ff;
+
+    font-size: .75rem;
+
+    font-weight: 800;
+
+    letter-spacing: .18em;
+}
+
+
+h1 {
+
+    margin:
+        10px 0 20px;
+
+    line-height:
+        1.15;
+
+}
+
+
+p {
+
+    color:
+        #d8d0e7;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding:
+        13px 22px;
+
+    margin:
+        8px;
+
+    background:
+        #8e6cff;
+
+    color:
+        white;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+    box-shadow:
+        0 0 10px rgba(203, 183, 255, .25),
+        0 0 25px rgba(203, 183, 255, .15);
+}
+/* =========================
+   BRILHO SUAVE NOS BOTÕES
+========================= */
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, .18),
+            transparent
+        );
+    transform: skewX(-20deg);
+    animation: buttonShine 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes buttonShine {
+    0%, 55% {
+        left: -120%;
+    }
+
+    75%, 100% {
+        left: 140%;
+    }
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input {
+
+    width:
+        min(
+            100%,
+            420px
+        );
+
+    padding:
+        14px 16px;
+
+    margin:
+        15px 0;
+
+    border:
+        1px solid #ffffff20;
+
+    border-radius:
+        14px;
+
+    outline:
+        none;
+
+    background:
+        #080613;
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    font-size:
+        1rem;
+}
+
+
+input:focus {
+
+    border-color:
+        #9d83ff;
+}
+
+
+/* =========================
+   PROGRESSO
+========================= */
+
+.progress {
+
+    position:
+        fixed;
+
+    top:
+        18px;
+
+    right:
+        25px;
+
+    color:
+        #aaa1bd;
+
+    font-size:
+        .8rem;
+
+    z-index:
+        10;
+}
+
+
+/* =========================
+   PISTAS
+========================= */
+
+.hint {
+
+    display:
+        block;
+
+    margin:
+        5px auto;
+
+    background:
+        transparent;
+
+    border:
+        1px solid #ffffff20;
+
+    color:
+        #cfc4e5;
+
+    font-size:
+        .8rem;
+}
+
+
+.feedback {
+
+    min-height:
+        25px;
+
+    color:
+        #cbb7ff;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================
+   FRASE
+========================= */
+
+.quote {
+
+    margin:
+        25px auto;
+
+    padding:
+        22px;
+
+    max-width:
+        500px;
+
+    border-radius:
+        18px;
+
+    background:
+        #ffffff08;
+
+    color:
+        #f1ebff;
+
+    font-size:
+        1.15rem;
+
+    font-style:
+        italic;
+}
+
+
+.choices {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+}
+
+
+/* =========================
+   DISTÂNCIA
+========================= */
+
+.route {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        15px;
+
+    margin:
+        30px 0;
+
+    font-size:
+        2.5rem;
+}
+
+
+.dots {
+
+    color:
+        #9d83ff;
+
+    font-size:
+        1rem;
+
+    letter-spacing:
+        .2em;
+}
+
+
+/* =========================
+   CONSTELAÇÃO
+========================= */
+
+.constellation {
+
+    position:
+        relative;
+
+    width:
+        min(
+            500px,
+            100%
+        );
+
+    height:
+        280px;
+
+    margin:
+        20px auto;
+}
+
+
+/* =========================
+   ESTRELAS DA CONSTELAÇÃO
+========================= */
+
+.constellation .star {
+    position: absolute;
+    color: #aaa1bd;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition:
+        transform .25s ease,
+        color .25s ease,
+        text-shadow .25s ease;
+}
+
+.constellation .star:hover {
+    transform: scale(1.35);
+    color: #cbb7ff;
+}
+
+.constellation .star.on {
+    color: #cbb7ff;
+    transform: scale(1.35);
+    text-shadow:
+        0 0 15px #cbb7ff;
+}
+
+.constellation .star.done {
+    text-shadow:
+        0 0 20px #cbb7ff;
+}
+
+.star:nth-child(1) {
+    left: 15%;
+    top: 60%;
+}
+
+
+.star:nth-child(2) {
+    left: 28%;
+    top: 35%;
+}
+
+
+.star:nth-child(3) {
+    left: 43%;
+    top: 50%;
+}
+
+
+.star:nth-child(4) {
+    left: 57%;
+    top: 25%;
+}
+
+
+.star:nth-child(5) {
+    left: 68%;
+    top: 48%;
+}
+
+
+.star:nth-child(6) {
+    left: 78%;
+    top: 30%;
+}
+
+
+.star:nth-child(7) {
+    left: 88%;
+    top: 65%;
+}
+
+
+.star:hover {
+
+    transform:
+        scale(1.35);
+
+}
+
+
+.star.on {
+
+    color:
+        #cbb7ff;
+
+    transform:
+        scale(1.35);
+
+    text-shadow:
+        0 0 15px #cbb7ff;
+}
+
+
+.star.done {
+
+    text-shadow:
+        0 0 20px #cbb7ff;
+}
+
+/* =========================
+   LINHAS DA CONSTELAÇÃO
+========================= */
+
+.constellation-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+}
+
+.constellation-lines line {
+    stroke: #cbb7ff;
+    stroke-width: .45;
+    stroke-linecap: round;
+    opacity: 0;
+    filter: drop-shadow(0 0 4px #cbb7ff);
+    transition: opacity .6s ease;
+}
+
+.constellation-lines.show line {
+    opacity: .7;
+}
+
+.constellation .star {
+    z-index: 2;
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music {
+
+    margin:
+        25px auto;
+
+    padding:
+        25px;
+
+    max-width:
+        400px;
+
+    border:
+        1px solid #ffffff15;
+
+    border-radius:
+        20px;
+
+    background:
+        #ffffff06;
+}
+
+
+.music-icon {
+
+    font-size:
+        3rem;
+
+    color:
+        #cbb7ff;
+}
+
+
+.music-button {
+
+    background:
+        #241936;
+
+    border:
+        1px solid #5a476d;
+}
+
+
+/* =========================
+   CARTÕES DE DECLARAÇÃO
+========================= */
+
+.notes {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        15px;
+
+    margin:
+        25px 0;
+}
+
+
+.flip-card {
+
+    height:
+        210px;
+
+    perspective:
+        1000px;
+
+    cursor:
+        pointer;
+}
+
+
+.flip-card-inner {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    transition:
+        transform .7s ease;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+.flip-card.flipped
+.flip-card-inner {
+
+    transform:
+        rotateY(180deg);
+}
+
+
+.flip-card-front,
+.flip-card-back {
+
+    position:
+        absolute;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    padding:
+        22px;
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid #ffffff1a;
+
+    background:
+        linear-gradient(
+            145deg,
+            #211741,
+            #120d2b
+        );
+
+    box-shadow:
+        0 15px 40px #0005;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+}
+
+
+.flip-card-front {
+
+    gap:
+        8px;
+}
+
+
+.card-icon {
+
+    font-size:
+        2.4rem;
+
+    margin-bottom:
+        8px;
+
+    filter:
+        drop-shadow(
+            0 0 10px #cbb7ff55
+        );
+}
+
+
+.flip-card-front span {
+
+    color:
+        white;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+}
+
+
+.flip-card-front small {
+
+    margin-top:
+        8px;
+
+    color:
+        #aaa1bd;
+
+    font-size:
+        .75rem;
+}
+
+
+.flip-card-back {
+
+    transform:
+        rotateY(180deg);
+
+    background:
+        radial-gradient(
+            circle at center,
+            #30205c,
+            #120d2b
+        );
+}
+
+
+.flip-card-back p {
+
+    margin:
+        0;
+
+    color:
+        #f1ebff;
+
+    font-size:
+        .95rem;
+
+    line-height:
+        1.6;
+}
+
+
+.flip-card:hover
+.flip-card-front {
+
+    border-color:
+        #a98cff55;
+}
+
+
+/* =========================
+   PERGUNTA FINAL
+========================= */
+
+.final-card {
+
+    position:
+        relative;
+}
+
+
+.final-actions {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    min-height:
+        80px;
+}
+
+
+.yes {
+
+    background:
+        #8e6cff;
+}
+
+
+.no {
+
+    background:
+        #241936;
+
+    color:
+        white;
+
+    border:
+        1px solid #5a476d;
+
+    transition:
+        left .35s ease,
+        top .35s ease;
+
+    z-index:
+        9999;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.ending-stars {
+
+    margin-top:
+        30px;
+
+    color:
+        #cbb7ff;
+
+    font-size:
+        2rem;
+
+    animation:
+        floatStars 2s ease-in-out infinite;
+}
+
+
+@keyframes floatStars {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+
+        padding:
+            30px 20px;
+
+        width:
+            calc(100vw - 30px);
+
+        max-height:
+            calc(100vh - 30px);
+    }
+
+
+    .notes {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .flip-card {
+
+        height:
+            200px;
+
+    }
+
+
+    .route {
+
+        gap:
+            8px;
+
+        font-size:
+            2.2rem;
+
+    }
+
+
+    .progress {
+
+        top:
+            15px;
+
+        right:
+            18px;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            1.6rem;
+
+    }
+
+}
+/* =========================
+   ABERTURA — ANIMAÇÕES SUAVES
+========================= */
+
+.intro-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+.intro {
+    position: relative;
+    z-index: 2;
+    animation: introCard 1s ease forwards;
+}
+
+.intro-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #bfa9ff;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    opacity: 0;
+    animation: fadeUp .8s ease .2s forwards;
+}
+
+.intro-title {
+    opacity: 0;
+    animation: fadeUp 1s ease .5s forwards;
+}
+
+.intro-line {
+    width: 70px;
+    height: 1px;
+    margin: 22px auto;
+    background: #8d73c7;
+    opacity: 0;
+    animation: fadeIn .8s ease 1s forwards;
+}
+
+.intro-text {
+    opacity: 0;
+    animation: fadeUp .8s ease 1.1s forwards;
+}
+
+.intro-text:nth-of-type(2) {
+    animation-delay: 1.35s;
+}
+
+.intro-last {
+    animation-delay: 1.6s;
+}
+
+.intro-button {
+    opacity: 0;
+    animation:
+        fadeUp .8s ease 2s forwards,
+        buttonGlow 2.5s ease-in-out 3s infinite;
+}
+
+.intro-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.intro-stars span {
+    position: absolute;
+    color: #cbb7ff;
+    opacity: 0;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.intro-stars span:nth-child(1) {
+    left: 12%;
+    top: 20%;
+    animation-delay: .2s;
+}
+
+.intro-stars span:nth-child(2) {
+    left: 23%;
+    top: 72%;
+    animation-delay: 1.1s;
+}
+
+.intro-stars span:nth-child(3) {
+    left: 82%;
+    top: 18%;
+    animation-delay: .7s;
+}
+
+.intro-stars span:nth-child(4) {
+    left: 90%;
+    top: 65%;
+    animation-delay: 1.8s;
+}
+
+.intro-stars span:nth-child(5) {
+    left: 72%;
+    top: 78%;
+    animation-delay: .9s;
+}
+
+.intro-stars span:nth-child(6) {
+    left: 8%;
+    top: 48%;
+    animation-delay: 2s;
+}
+
+.intro-stars span:nth-child(7) {
+    left: 40%;
+    top: 12%;
+    animation-delay: 1.5s;
+}
+
+.intro-stars span:nth-child(8) {
+    left: 94%;
+    top: 35%;
+    animation-delay: .4s;
+}
+
+.intro-stars span:nth-child(9) {
+    left: 28%;
+    top: 30%;
+    animation-delay: 2.2s;
+}
+
+.intro-stars span:nth-child(10) {
+    left: 65%;
+    top: 10%;
+    animation-delay: 1.3s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes introCard {
+    from {
+        opacity: 0;
+        transform: scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: .15;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes buttonGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(203, 183, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 22px rgba(203, 183, 255, .25);
+    }
+}
+
+.mission-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #070713;
+    color: #cbb7ff;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+}
+
+.mission-transition.show {
+    opacity: 1;
+}
+/* =========================
+   ESTRELAS PISCANDO EM TODAS AS TELAS
+========================= */
+
+.screen::before,
+.screen::after {
+    content: "✦";
+    position: absolute;
+    pointer-events: none;
+    color: #cbb7ff;
+    z-index: 0;
+    opacity: .2;
+    animation: screenTwinkle 3s ease-in-out infinite;
+}
+
+.screen::before {
+    left: 10%;
+    top: 18%;
+    font-size: 12px;
+}
+
+.screen::after {
+    right: 12%;
+    bottom: 20%;
+    font-size: 9px;
+    animation-delay: 1.4s;
+}
+
+@keyframes screenTwinkle {
+    0%, 100% {
+        opacity: .15;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.25);
+    }
+}
+/* =========================
+   TRANSIÇÃO ENTRE AS FASES
+========================= */
+
+.phase-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #21163f 0%,
+            #0b0819 55%,
+            #05050d 100%
+        );
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity .55s ease;
+}
+
+.phase-transition.show {
+    opacity: 1;
+}
+
+.phase-transition.hide {
+    opacity: 0;
+}
+
+.transition-symbol {
+    color: #cbb7ff;
+    font-size: 28px;
+    margin-bottom: 18px;
+
+    opacity: 0;
+    transform: scale(.6);
+
+    text-shadow:
+        0 0 10px #cbb7ff,
+        0 0 30px rgba(203, 183, 255, .5);
+
+    animation:
+        transitionStar .8s ease forwards;
+}
+
+.transition-text {
+    color: #f7f3ff;
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: .25em;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    animation:
+        transitionText .7s ease .15s forwards;
+}
+
+.transition-subtext {
+    margin-top: 10px;
+    color: #a99fba;
+    font-size: .75rem;
+    letter-spacing: .12em;
+
+    opacity: 0;
+
+    animation:
+        transitionText .7s ease .3s forwards;
+}
+
+@keyframes transitionStar {
+
+    0% {
+        opacity: 0;
+        transform: scale(.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes transitionText {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================
+   TRANSIÇÃO FINAL
+========================= */
+
+.final-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #241747 0%,
+            #0c081b 50%,
+            #05050d 100%
+        );
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease;
+}
+
+.final-transition.show {
+    opacity: 1;
+}
+
+.final-transition.hide {
+    opacity: 0;
+}
+
+.final-stars {
+    position: absolute;
+
+    color: #cbb7ff;
+    font-size: 34px;
+
+    opacity: 0;
+
+    text-shadow:
+        0 0 12px #cbb7ff,
+        0 0 35px rgba(203, 183, 255, .6);
+
+    animation:
+        finalStar 2s ease forwards;
+}
+
+.final-line {
+    position: absolute;
+
+    width: 90%;
+    text-align: center;
+
+    color: #f7f3ff;
+
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .22em;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.final-line-1 {
+    transform:
+        translateY(10px);
+}
+
+.final-line-2 {
+    transform:
+        translateY(10px);
+}
+
+.final-line-3 {
+    transform:
+        translateY(10px);
+}
+
+.final-transition.reveal
+.final-line-1 {
+    opacity: 1;
+    transform:
+        translateY(-55px);
+}
+
+.final-transition.reveal
+.final-line-2 {
+    opacity: 1;
+    transform:
+        translateY(0);
+    transition-delay: .45s;
+}
+
+.final-transition.reveal
+.final-line-3 {
+    opacity: 1;
+    transform:
+        translateY(55px);
+    transition-delay: 1s;
+}
+
+@keyframes finalStar {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(.3)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            scale(1.4)
+            rotate(90deg);
+    }
+
+    100% {
+        opacity: .8;
+        transform:
+            scale(1)
+            rotate(180deg);
+    }
+}
+
+/* =========================
+   MINI CALENDÁRIO
+========================== */
+
+.mini-calendar {
+    width: min(100%, 320px);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 26px auto 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-shadow:
+        0 0 8px rgba(203, 183, 255, 0.18),
+        0 0 22px rgba(203, 183, 255, 0.10);
+
+}
+
+
+/* =========================
+   CABEÇALHO
+========================== */
+
+.calendar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 14px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.calendar-month {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+
+.calendar-month strong {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+}
+
+
+.calendar-month span {
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+
+/* =========================
+   SETAS
+========================== */
+
+.calendar-arrow {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    box-shadow: none;
+
+    font-size: 23px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.calendar-arrow:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================
+   GRADE DOS DIAS
+========================== */
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    padding: 7px;
+}
+
+
+/* =========================
+   NÚMEROS
+========================== */
+
+.calendar-day,
+.calendar-empty {
+    width: 100%;
+    aspect-ratio: 1;
+
+    min-height: 32px;
+}
+
+
+.calendar-day {
+    border: 0;
+    border-radius: 7px;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    padding: 0;
+
+    font-size: 12px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Brilho bem discreto só quando passa o mouse */
+
+.calendar-day:hover {
+    transform: none;
+
+    background:
+        rgba(203, 183, 255, 0.08);
+
+    box-shadow: none;
+}
+
+
+/* Quando clicar, não cria aquele brilho dos botões */
+
+.calendar-day:active {
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Remove qualquer efeito de foco exagerado */
+
+.calendar-day:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* Espaços vazios do calendário */
+
+.calendar-empty {
+    display: block;
+}
+
+/* =========================
+   NÚMEROS DO CALENDÁRIO
+========================== */
+
+.mini-calendar .calendar-day {
+    width: 100%;
+    aspect-ratio: 1;
+    min-height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: none !important;
+    border-radius: 6px !important;
+
+    background: transparent !important;
+
+    /* REMOVE O BRILHO DOS BOTÕES */
+    box-shadow: none !important;
+    text-shadow: none !important;
+
+    /* FONTE DELICADA */
+    font-family: "Times New Roman", serif !important;
+    font-size: 13px !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+
+    color: rgba(255, 255, 255, 0.78) !important;
+
+    transform: none !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+/* Quando passar o mouse */
+.mini-calendar .calendar-day:hover {
+    background: rgba(203, 183, 255, 0.08) !important;
+
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+}
+
+/* Clique */
+.mini-calendar .calendar-day:active,
+.mini-calendar .calendar-day:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    outline: none !important;
+    transform: none !important;
+}
+
+/* =========================
+   CARTA — INTRO
+========================== */
+
+.letter-intro {
+    text-align: center;
+}
+
+.letter-intro h1 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.letter-intro p {
+    opacity: 0.75;
+}
+
+
+/* =========================
+   CARTA ABERTA
+========================== */
+
+.letter-card {
+    text-align: center;
+}
+
+.letter-paper {
+    width: min(100%, 570px);
+    box-sizing: border-box;
+
+    margin: 10px auto 24px;
+    padding: 38px 42px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.035)
+        );
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 0 18px rgba(203,183,255,0.12),
+        0 0 45px rgba(203,183,255,0.06);
+
+    position: relative;
+
+    animation: letterAppear 0.8s ease both;
+}
+
+
+/* =========================
+   ROLAGEM DA CARTA
+========================== */
+
+.letter-card {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(203,183,255,0.35) transparent;
+}
+
+
+/* Chrome / Edge */
+
+.letter-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.letter-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-card::-webkit-scrollbar-thumb {
+    background: rgba(203,183,255,0.35);
+    border-radius: 10px;
+}
+
+.letter-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(203,183,255,0.55);
+}
+
+
+/* pequenos detalhes da carta */
+
+.letter-decoration {
+    font-size: 16px;
+    opacity: 0.55;
+    margin: 4px 0 22px;
+}
+
+.letter-paper .eyebrow {
+    opacity: 0.55;
+}
+
+
+/* título da carta */
+
+.letter-paper h1 {
+    margin-top: 18px;
+    margin-bottom: 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* texto */
+
+.letter-text {
+    text-align: left;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.85;
+
+    color: rgba(255,255,255,0.84);
+}
+
+.letter-text p {
+    margin: 0 0 20px;
+}
+
+
+/* frase especial */
+
+.letter-text .letter-final {
+    margin-top: 28px;
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    font-size: 16px;
+    font-style: italic;
+
+    color: rgba(255,255,255,0.92);
+}
+
+
+/* assinatura */
+
+.letter-signature {
+    margin-top: 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    opacity: 0.82;
+}
+
+
+/* frase depois da carta */
+
+.letter-ending {
+    margin: 8px auto 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+
+    font-size: 14px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================
+   ANIMAÇÃO
+========================== */
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================
+   BOTÃO — FINAL DA CARTA
+========================== */
+
+.letter-card > button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    transform: translateY(10px);
+}
+
+.letter-card > button.letter-button-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+/* =========================
+   AJUSTE — TELA DA MÚSICA
+========================= */
+
+.music-player {
+    margin-bottom: 10px;
+}
+
+.music {
+    margin-top: 15px;
+    margin-bottom: 12px;
+    padding: 18px;
+}
+
+.music h2 {
+    margin: 8px 0 2px;
+}
+
+.music p {
+    margin: 4px 0 12px;
+}
+
+.music + .feedback {
+    min-height: 0;
+    margin: 5px 0;
+}
+
+.music + .feedback + button {
+    position: relative;
+    z-index: 5;
+    margin-top: 8px;
+}

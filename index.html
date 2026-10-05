@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uma Pequena Missão</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <!-- =========================
+         TELA 0 — ABERTURA
+    ========================== -->
+
+   <section class="screen active intro-screen">
+
+    <div class="intro-stars">
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>·</span>
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+    </div>
+
+    <div class="card intro">
+
+        <span class="intro-label">
+            UMA PEQUENA MISSÃO
+        </span>
+
+        <h1 class="intro-title">
+            Existe uma história<br>
+            escondida aqui.
+        </h1>
+
+        <div class="intro-line"></div>
+
+        <p class="intro-text">
+            Você recebeu uma missão.
+        </p>
+
+        <p class="intro-text">
+            Para chegar ao final, terá que encontrar pistas,
+            descobrir códigos e resolver alguns enigmas.
+        </p>
+
+        <p class="intro-text intro-last">
+            Algumas respostas você sabe.
+            Outras talvez precise descobrir. 👀
+        </p>
+
+        <button
+            class="primary intro-button"
+            onclick="startMission()"
+        >
+            ✦ ACEITAR A MISSÃO ✦
+        </button>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         TELA 1 — PRIMEIRA PISTA
+    ========================== -->
+
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            1/8
+        </div>
+
+        <span class="eyebrow">
+            PRIMEIRA PISTA
+        </span>
+
+        <h1>
+            Uma palavra está escondida aqui.
+        </h1>
+
+        <p>
+            Não é algo que você pode tocar.
+            Não é algo que pode ser guardado em uma caixa.
+        </p>
+
+        <p>
+            É algo que uma pessoa pode fazer
+            quando quer dar sua palavra a alguém.
+        </p>
+
+        <p>
+            Pode ser feita hoje,
+            mesmo quando aquilo que foi prometido
+            só vai acontecer no futuro.
+        </p>
+
+        <p>
+            <strong>
+                Que palavra estou procurando?
+            </strong>
+        </p>
+
+        <input
+            id="a1"
+            type="text"
+            placeholder="Digite a palavra..."
+        >
+
+        <button onclick="check(1)">
+            DESCOBRIR
+        </button>
+
+        <button
+            class="hint"
+            onclick="hint(1)"
+        >
+            💡 Preciso de uma pista
+        </button>
+
+        <p
+            id="f1"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+     TELA 2 — CÓDIGO SECRETO
+========================== -->
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            2/8
+        </div>
+
+        <span class="eyebrow">
+            CÓDIGO SECRETO
+        </span>
+
+        <h1>
+            Uma palavra está escondida nos números.
+        </h1>
+
+        <p>
+            Cinco números.
+            Uma palavra.
+        </p>
+
+        <p>
+            O segredo está em descobrir
+            o que cada número representa.
+        </p>
+
+        <div class="quote">
+            19 • 15 • 14 • 8 • 15
+        </div>
+
+        <p>
+            Existe uma regra simples:
+            <strong>A = 1</strong>.
+        </p>
+
+        <p>
+            Se A é 1, qual letra corresponde
+            a cada número?
+        </p>
+
+        <p>
+            <strong>
+                Decifre o código e descubra a palavra.
+            </strong>
+        </p>
+
+        <input
+            id="a2"
+            type="text"
+            placeholder="Digite a palavra..."
+        >
+
+        <button onclick="check(2)">
+            DECIFRAR
+        </button>
+
+        <button
+            class="hint"
+            onclick="hint(2)"
+        >
+            💡 Preciso de uma pista
+        </button>
+
+        <p
+            id="f2"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+     TELA 3 — QUEM DISSE ISSO?
+========================== -->
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            3/8
+        </div>
+
+        <span class="eyebrow">
+            QUEM DISSE ISSO?
+        </span>
+
+        <h1>
+            Algumas frases foram ditas.
+        </h1>
+
+        <p>
+            Mas será que você lembra
+            quem disse cada uma?
+        </p>
+
+        <p id="quoteNumber">
+            Frase 1 de 5
+        </p>
+
+        <div class="quote" id="quoteText">
+            “Você é meu sonho”
+        </div>
+
+        <div class="choice-buttons">
+
+            <button onclick="choose('VOCÊ')">
+                VOCÊ
+            </button>
+
+            <button onclick="choose('EU')">
+                EU
+            </button>
+
+        </div>
+
+        <p
+            id="f3"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     TELA 4 — A DATA
+========================== -->
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            4/9
+        </div>
+
+        <span class="eyebrow">
+            UMA DATA IMPORTANTE
+        </span>
+
+        <h1>
+            Algumas datas passam despercebidas.
+        </h1>
+
+        <p>
+            Outras ficam guardadas.
+        </p>
+
+        <p>
+            Encontre no calendário
+            o dia em que tudo começou.
+        </p>
+
+        <div class="mini-calendar">
+
+            <div class="calendar-top">
+
+                <button
+                    class="calendar-arrow"
+                    onclick="changeMonth(-1)"
+                >
+                    ‹
+                </button>
+
+                <div class="calendar-month">
+                    <strong id="calendarMonth">
+                        Setembro
+                    </strong>
+
+                    <span id="calendarYear">
+                        2026
+                    </span>
+                </div>
+
+                <button
+                    class="calendar-arrow"
+                    onclick="changeMonth(1)"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div
+                class="calendar-grid"
+                id="calendarDays"
+            ></div>
+
+        </div>
+
+        <p
+            id="f7"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     TELA 5 — UMA CARTA
+========================== -->
+
+<section class="screen">
+
+    <div class="card letter-intro">
+
+        <div class="progress">
+            5/10
+        </div>
+
+        <span class="eyebrow">
+            ALGO DIFERENTE
+        </span>
+
+        <h1>
+            Você encontrou algo que não estava nas pistas.
+        </h1>
+
+        <p>
+            Algumas coisas não precisam ser decifradas.
+        </p>
+
+        <p>
+            Só precisam ser lidas.
+        </p>
+
+        <button onclick="openLetter()">
+            ABRIR A CARTA
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CARTA ABERTA
+========================== -->
+
+<section class="screen">
+
+    <div class="card letter-card">
+
+        <div class="letter-paper">
+
+            <div class="letter-decoration">
+                ✦
+            </div>
+
+            <span class="eyebrow">
+                UMA CARTA PARA VOCÊ
+            </span>
+
+            <h1>
+                Para você, meu amor.
+            </h1>
+
+            <div class="letter-text">
+
+                <p>
+                    Se eu pudesse transformar tudo o que sinto
+                    em alguma coisa que você pudesse tocar,
+                    eu te entregaria o céu inteiro.
+                </p>
+
+                <p>
+                    Talvez porque foi assim que você chegou até mim:
+                    como uma pequena luz
+                    em um lugar onde eu nem sabia
+                    que ainda esperava por alguém.
+                </p>
+
+                <p>
+                    E, de repente,
+                    você estava aqui.
+                </p>
+
+                <p>
+                    Mesmo tão longe,
+                    você conseguiu se tornar presença.
+                </p>
+
+                <p>
+                    Está nas minhas músicas,
+                    nos meus pensamentos antes de dormir,
+                    nos meus planos para o futuro,
+                    nas pequenas coisas do meu dia
+                    que me fazem pensar em você.
+                </p>
+
+                <p>
+                    E está, principalmente,
+                    na parte de mim que começou a acreditar
+                    que talvez o amor também pudesse ser lar.
+                </p>
+
+                <p>
+                    E existe uma coisa que eu nunca quero esquecer.
+                </p>
+
+                <p>
+                    Uma vez, você me disse
+                    que eu encontraria alguém
+                    e que essa pessoa seria como o pôr do sol.
+                </p>
+
+                <p>
+                    Naquele momento,
+                    talvez você nem imaginasse
+                    o quanto essas palavras ficariam guardadas em mim.
+                </p>
+
+                <p>
+                    Porque hoje eu olho para você
+                    e entendo.
+                </p>
+
+                <p>
+                    <strong>Você estava falando de você.</strong>
+                </p>
+
+                <p>
+                    Você é o meu pôr do sol.
+                </p>
+
+                <p>
+                    Aquele momento bonito do dia
+                    que faz tudo parecer mais calmo.
+                </p>
+
+                <p>
+                    A luz que chega devagar
+                    e transforma o céu inteiro
+                    sem precisar pedir permissão.
+                </p>
+
+                <p>
+                    Aquele instante que eu gostaria
+                    de conseguir guardar para sempre,
+                    porque, mesmo sabendo que ele passa,
+                    eu ainda escolho ficar olhando.
+                </p>
+
+                <p>
+                    E talvez seja isso que você se tornou para mim:
+                </p>
+
+                <p>
+                    não apenas alguém que eu amo,
+                    mas alguém que faz o mundo
+                    parecer um pouco mais bonito
+                    só por existir nele.
+                </p>
+
+                <p>
+                    Eu sei que existe um oceano entre nós.
+                </p>
+
+                <p>
+                    Sei que existem noites em que a saudade aperta,
+                    dias em que eu queria simplesmente atravessar a distância
+                    e encontrar você do outro lado.
+                </p>
+
+                <p>
+                    Queria poder olhar nos seus olhos
+                    quando digo que te amo.
+                </p>
+
+                <p>
+                    Queria poder segurar sua mão
+                    quando você estiver com medo.
+                </p>
+
+                <p>
+                    Queria poder te abraçar
+                    nos dias em que o mundo parecer pesado demais.
+                </p>
+
+                <p>
+                    Mas, por enquanto,
+                    eu te abraço com palavras.
+                </p>
+
+                <p>
+                    E espero que, de algum jeito,
+                    elas consigam chegar até você.
+                </p>
+
+                <p>
+                    Quero que você saiba
+                    que eu não quero ser o motivo
+                    para você deixar seus sonhos para trás.
+                </p>
+
+                <p>
+                    Muito pelo contrário.
+                </p>
+
+                <p>
+                    Eu quero ser aquela pessoa
+                    que estará na primeira fila,
+                    torcendo por você.
+                </p>
+
+                <p>
+                    Quero ver você crescer,
+                    conquistar seus sonhos,
+                    descobrir novos caminhos,
+                    se tornar tudo aquilo que deseja ser.
+                </p>
+
+                <p>
+                    E, quando você conseguir,
+                    quero estar aqui dizendo:
+                </p>
+
+                <p>
+                    <strong>“Eu sabia que você conseguiria.”</strong>
+                </p>
+
+                <p>
+                    Porque eu acredito em você.
+                </p>
+
+                <p>
+                    Às vezes, talvez você mesmo esqueça
+                    o quanto é capaz.
+                </p>
+
+                <p>
+                    Então, quando isso acontecer,
+                    lembre-se de que existe alguém
+                    do outro lado do mundo
+                    acreditando em você com todo o coração.
+                </p>
+
+                <p>
+                    E se algum dia
+                    a distância fizer você pensar
+                    que nós estamos longe demais,
+                </p>
+
+                <p>
+                    olhe para o céu.
+                </p>
+
+                <p>
+                    Talvez você não consiga me ver,
+                    mas estaremos olhando para a mesma imensidão.
+                </p>
+
+                <p>
+                    E eu vou pensar em você.
+                </p>
+
+                <p>
+                    Vou pensar que, por maior que seja o mundo,
+                    por maior que seja o oceano,
+                    por mais quilômetros que existam entre nós,
+                </p>
+
+                <p>
+                    <strong>eu ainda encontrei você.</strong>
+                </p>
+
+                <p>
+                    E isso, para mim,
+                    é uma das coisas mais bonitas
+                    que a vida poderia ter feito.
+                </p>
+
+                <p>
+                    Eu não posso prometer
+                    que nunca teremos dias difíceis.
+                </p>
+
+                <p>
+                    Não posso prometer
+                    que nunca vamos sentir medo,
+                    saudade ou insegurança.
+                </p>
+
+                <p>
+                    Mas posso prometer uma coisa:
+                </p>
+
+                <p>
+                    <strong>eu vou continuar escolhendo você.</strong>
+                </p>
+
+                <p>
+                    Quando for fácil,
+                    eu escolho você.
+                </p>
+
+                <p>
+                    Quando for difícil,
+                    eu escolho conversar.
+                </p>
+
+                <p>
+                    Quando a saudade doer,
+                    eu escolho esperar.
+                </p>
+
+                <p>
+                    Quando nossos sonhos parecerem distantes,
+                    eu escolho continuar acreditando.
+                </p>
+
+                <p>
+                    Porque eu não quero um amor
+                    que exista somente nos dias perfeitos.
+                </p>
+
+                <p>
+                    Eu quero o nosso.
+                </p>
+
+                <p>
+                    O que permanece.
+                </p>
+
+                <p>
+                    O que aprende.
+                </p>
+
+                <p>
+                    O que cresce.
+                </p>
+
+                <p>
+                    O que enfrenta a distância
+                    e ainda encontra motivos para sorrir.
+                </p>
+
+                <p>
+                    Eu quero chegar um dia
+                    ao fim dessa distância
+                    e olhar para você.
+                </p>
+
+                <p>
+                    Quero abraçar você
+                    sem uma tela entre nós.
+                </p>
+
+                <p>
+                    Quero finalmente sentir
+                    que todos aqueles “eu queria que você estivesse aqui”
+                    viraram realidade.
+                </p>
+
+                <p>
+                    E talvez, naquele momento,
+                    eu chore.
+                </p>
+
+                <p>
+                    Não de tristeza.
+                </p>
+
+                <p>
+                    Mas porque vou lembrar
+                    de todas as vezes em que sentimos saudade,
+                    de todas as noites em que desejamos estar perto,
+                    de todos os quilômetros que pareciam impossíveis,
+                </p>
+
+                <p>
+                    e vou pensar:
+                </p>
+
+                <p>
+                    <strong>“Nós conseguimos.”</strong>
+                </p>
+
+                <p>
+                    E talvez eu me lembre daquela frase.
+                </p>
+
+                <p>
+                    Daquela vez em que você me disse
+                    que eu encontraria alguém
+                    como o pôr do sol.
+                </p>
+
+                <p>
+                    E vou olhar para você
+                    e pensar em como é engraçado
+                    que, sem perceber,
+                    você estava descrevendo exatamente
+                    a pessoa que um dia se tornaria
+                    o meu lugar favorito para olhar.
+                </p>
+
+                <p>
+                    Porque agora eu sei:
+                </p>
+
+                <p>
+                    algumas pessoas passam pela nossa vida
+                    como uma estrela no céu.
+                </p>
+
+                <p>
+                    Outras passam como uma estação.
+                </p>
+
+                <p>
+                    Mas você...
+                </p>
+
+                <p>
+                    <strong>você chegou como pôr do sol.</strong>
+                </p>
+
+                <p>
+                    E eu não quero apenas admirar a sua luz.
+                </p>
+
+                <p>
+                    Quero estar aqui
+                    quando o dia estiver bonito
+                    e quando estiver nublado.
+                </p>
+
+                <p>
+                    Quero conhecer todas as versões que ainda seremos.
+                </p>
+
+                <p>
+                    Quero conhecer seus sonhos,
+                    seus medos,
+                    suas conquistas,
+                    seus dias bons
+                    e até aqueles em que você precisar apenas de alguém ao seu lado.
+                </p>
+
+                <p>
+                    Quero estar presente nas pequenas coisas.
+                </p>
+
+                <p>
+                    Porque talvez seja nelas
+                    que o amor realmente more.
+                </p>
+
+                <p>
+                    E se um dia
+                    a gente olhar para trás
+                    e perceber quantas coisas enfrentamos,
+                </p>
+
+                <p>
+                    eu quero poder segurar sua mão
+                    e dizer:
+                </p>
+
+                <p>
+                    <strong>“Ainda bem que você não soltou a minha.”</strong>
+                </p>
+
+                <p>
+                    Meu amor,
+                </p>
+
+                <p>
+                    você é uma das minhas maiores esperanças para o futuro.
+                </p>
+
+                <p>
+                    E eu não sei exatamente
+                    onde a vida vai nos levar.
+                </p>
+
+                <p>
+                    Mas sei de uma coisa:
+                </p>
+
+                <p>
+                    se nossos caminhos continuarem se encontrando,
+                    eu quero continuar caminhando ao seu lado.
+                </p>
+
+                <p>
+                    Até que a distância deixe de ser parte da nossa história.
+                </p>
+
+                <p>
+                    Até que nossos sonhos tenham endereço.
+                </p>
+
+                <p>
+                    Até que a saudade vire abraço.
+                </p>
+
+                <p>
+                    Até que o “um dia” vire “agora”.
+                </p>
+
+                <p>
+                    E até lá,
+                </p>
+
+                <p>
+                    <strong>eu te amo daqui.</strong>
+                </p>
+
+                <p>
+                    Você me ama daí.
+                </p>
+
+                <p>
+                    E, entre nós dois,
+                    existe um oceano.
+                </p>
+
+                <p>
+                    Mas existe também
+                    um amor grande o bastante
+                    para atravessá-lo.
+                </p>
+
+                <p>
+                    E quando o sol se pôr,
+                    onde quer que eu esteja,
+                    vou olhar para o céu
+                    e lembrar de você.
+                </p>
+
+                <p>
+                    Porque agora eu sei:
+                </p>
+
+                <p>
+                    <strong>o meu pôr do sol não está no céu.</strong>
+                </p>
+
+                <p>
+                    <strong>Ele está do outro lado do oceano.</strong>
+                </p>
+
+                <p>
+                    <strong>É você.</strong>
+                </p>
+
+                <p>
+                    Eu te amo, meu amor.
+                </p>
+
+                <p>
+                    Hoje. Amanhã.
+                    E em todos os futuros
+                    que ainda não conhecemos. 💜
+                </p>
+
+                <p class="letter-final">
+                    Com amor,Lorrany 🌷
+                </p>
+
+            </div>
+
+            <div class="letter-decoration">
+                ✦
+            </div>
+
+        </div>
+
+        <p class="letter-ending">
+            Algumas promessas não precisam de código.
+        </p>
+
+        <button onclick="next()">
+            CONTINUAR A MISSÃO
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+     TELA 6 — DISTÂNCIA
+========================== -->
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            4/8
+        </div>
+
+        <span class="eyebrow">
+            DISTÂNCIA
+        </span>
+
+        <h1>
+            O mapa diz que estamos longe.
+        </h1>
+
+        <div class="route">
+
+            <span>
+                🇧🇷
+            </span>
+
+            <span class="dots">
+                • • • • • • •
+            </span>
+
+            <span>
+                🇳🇱
+            </span>
+
+        </div>
+
+        <p>
+            Brasil de um lado.
+            Holanda do outro.
+        </p>
+
+        <p>
+            Entre os dois existem quilômetros,
+            um oceano e horas de diferença.
+        </p>
+
+        <p>
+            Mas existe uma coisa que nenhum mapa
+            consegue colocar entre duas pessoas.
+        </p>
+
+        <p>
+            <strong>
+                O que a distância não consegue fazer?
+            </strong>
+        </p>
+
+        <input
+            id="a7"
+            type="text"
+            placeholder="Complete: ela não consegue..."
+        >
+
+        <button onclick="check(7)">
+            RESPONDER
+        </button>
+
+        <p
+            id="f4"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         TELA 7 — CONSTELAÇÃO
+    ========================== -->
+
+    <section class="screen">
+
+        <div class="card">
+
+            <div class="progress">
+                5/8
+            </div>
+
+            <span class="eyebrow">
+                CONSTELAÇÃO
+            </span>
+
+            <h1>
+                Encontre as estrelas certas.
+            </h1>
+
+            <p>
+                Algumas estrelas parecem aleatórias
+                até alguém encontrar a conexão entre elas.
+            </p>
+
+            <p>
+                Clique nas estrelas.
+            </p>
+
+            <div class="constellation">
+                <svg class="constellation-lines">
+    <line></line>
+    <line></line>
+    <line></line>
+    <line></line>
+    <line></line>
+    <line></line>
+</svg>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+                <span
+                    class="star"
+                    onclick="star(this)"
+                >
+                    ✦
+                </span>
+
+            </div>
+
+            <p
+                id="f8"
+                class="feedback"
+            ></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+     TELA 8 — PALAVRA SECRETA
+========================== -->
+
+<section class="screen">
+
+    <div class="card">
+
+        <div class="progress">
+            6/8
+        </div>
+
+        <span class="eyebrow">
+            PALAVRA SECRETA
+        </span>
+
+        <h1>
+            A última palavra está escondida nas pistas.
+        </h1>
+
+        <p>
+            Você já encontrou uma palavra no começo.
+        </p>
+
+        <p>
+            Agora pense no que vem depois dela.
+        </p>
+
+        <div class="quote">
+            SONHO → ?
+        </div>
+
+        <p>
+            Ela ainda não aconteceu.
+        </p>
+
+        <p>
+            É onde vivem todos os próximos capítulos.
+        </p>
+
+        <p>
+            É algo que duas pessoas podem imaginar,
+            planejar e construir juntas.
+        </p>
+
+        <p>
+            <strong>
+                Qual é a palavra secreta?
+            </strong>
+        </p>
+
+        <input
+            id="a9"
+            type="text"
+            placeholder="7 letras..."
+        >
+
+        <button onclick="check(9)">
+            DESCOBRIR
+        </button>
+
+        <button
+            class="hint"
+            onclick="hint(9)"
+        >
+            💡 Preciso de uma pista
+        </button>
+
+        <p
+            id="f9"
+            class="feedback"
+        ></p>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+     TELA 9 — MÚSICA
+========================== -->
+
+<section class="screen">
+    <div class="card">
+
+        <div class="progress">
+            7/8
+        </div>
+
+        <span class="eyebrow">
+            UMA PAUSA
+        </span>
+
+        <h1>
+            Agora você não precisa descobrir nada.
+        </h1>
+
+        <p>
+            Só quero que você escute isso comigo.
+        </p>
+
+        <div class="music">
+
+            <div class="music-icon">
+                ♪
+            </div>
+
+            <h2>
+                The Best Part
+            </h2>
+
+            <p>
+                Olivia Rodrigo
+            </p>
+
+            <!-- ÁUDIO -->
+            <audio id="musicAudio" preload="metadata">
+                <source
+                    src="the-best-part.mp3"
+                    type="audio/mpeg"
+                >
+                Seu navegador não suporta áudio.
+            </audio>
+
+            <!-- PLAYER -->
+            <div class="music-player">
+
+                <button
+                    type="button"
+                    class="music-button"
+                    id="musicPlayButton"
+                    onclick="toggleMusic()"
+                >
+                    ▶ TOCAR
+                </button>
+
+                <div class="music-progress-container">
+
+                    <span id="musicCurrentTime">
+                        0:00
+                    </span>
+
+                    <input
+                        type="range"
+                        id="musicProgress"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                    >
+
+                    <span id="musicDuration">
+                        0:00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p
+            id="note"
+            class="feedback"
+        ></p>
+
+        <button onclick="next()">
+            CONTINUAR
+        </button>
+
+    </div>
+</section>
+
+
+    <!-- =========================
+         TELA 10 — DECLARAÇÕES
+    ========================== -->
+
+    <section class="screen">
+
+        <div class="card">
+
+            <div class="progress">
+                8/8
+            </div>
+
+            <span class="eyebrow">
+                ALGUMAS COISAS QUE EU QUERO TE DIZER
+            </span>
+
+            <h1>
+                Abra cada cartão.
+            </h1>
+
+            <div class="notes">
+
+                <div
+                    class="flip-card"
+                    onclick="flipCard(this)"
+                >
+
+                    <div class="flip-card-inner">
+
+                        <div class="flip-card-front">
+
+                            <div class="card-icon">
+                                🌷
+                            </div>
+
+                            <span>
+                                Uma coisa que gosto em você
+                            </span>
+
+                            <small>
+                                Clique para abrir
+                            </small>
+
+                        </div>
+
+                        <div class="flip-card-back">
+
+                            <p>
+                                Gosto de como conversar com você
+                                parece fácil, mesmo quando existe
+                                um oceano no meio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flip-card"
+                    onclick="flipCard(this)"
+                >
+
+                    <div class="flip-card-inner">
+
+                        <div class="flip-card-front">
+
+                            <div class="card-icon">
+                                ☀️
+                            </div>
+
+                            <span>
+                                O que você representa
+                            </span>
+
+                            <small>
+                                Clique para abrir
+                            </small>
+
+                        </div>
+
+                        <div class="flip-card-back">
+
+                            <p>
+                                Você se tornou alguém muito especial
+                                para mim, de um jeito que eu não esperava.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flip-card"
+                    onclick="flipCard(this)"
+                >
+
+                    <div class="flip-card-inner">
+
+                        <div class="flip-card-front">
+
+                            <div class="card-icon">
+                                🌙
+                            </div>
+
+                            <span>
+                                Quando sinto saudade
+                            </span>
+
+                            <small>
+                                Clique para abrir
+                            </small>
+
+                        </div>
+
+                        <div class="flip-card-back">
+
+                            <p>
+                                Às vezes a saudade aparece do nada.
+                                E aí eu lembro que, mesmo longe,
+                                você faz parte dos meus dias.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="flip-card"
+                    onclick="flipCard(this)"
+                >
+
+                    <div class="flip-card-inner">
+
+                        <div class="flip-card-front">
+
+                            <div class="card-icon">
+                                ⭐
+                            </div>
+
+                            <span>
+                                Uma coisa que quero viver
+                            </span>
+
+                            <small>
+                                Clique para abrir
+                            </small>
+
+                        </div>
+
+                        <div class="flip-card-back">
+
+                            <p>
+                                Quero descobrir quantas histórias
+                                ainda cabem nesse nosso futuro.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button onclick="next()">
+                CONTINUAR
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TELA 11 — PERGUNTA FINAL
+    ========================== -->
+
+    <section class="screen">
+
+        <div class="card final-card">
+
+            <p>
+                Você conseguiu resolver todos os enigmas.
+            </p>
+
+            <p>
+                Encontrou a primeira pista.
+                Descobriu o código.
+                Reconheceu nossas palavras.
+                Atravessou a distância.
+                Encontrou nossa constelação.
+                Descobriu a palavra secreta.
+            </p>
+
+            <h1>
+                Você aceita ser meu parceiro pra sempre?
+            </h1>
+
+            <div class="final-actions">
+
+                <button
+                    class="yes"
+                    onclick="yes()"
+                >
+                    SIM 💜
+                </button>
+
+                <button
+                    id="no"
+                    class="no"
+                >
+                    NÃO
+                </button>
+
+            </div>
+
+            <p
+                id="noMsg"
+                class="feedback"
+            ></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TELA 12 — FINAL
+    ========================== -->
+
+    <section class="screen">
+
+        <div class="card">
+
+            <span class="eyebrow">
+                ✦ FIM DA MISSÃO ✦
+            </span>
+
+            <h1>
+                SONHO → FUTURO → NÓS
+            </h1>
+
+            <p>
+                Você chegou até o final.
+            </p>
+
+            <p>
+                E talvez essa história esteja só começando.
+            </p>
+
+            <div class="ending-stars">
+                ✦　✦　✦
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
